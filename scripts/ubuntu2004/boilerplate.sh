@@ -40,4 +40,11 @@ configure_http_proxy
 systemctl stop rsyslog irqbalance polkit
 partition_disks /dev/nvme1n1
 
+mkdir -p /etc/eks/containerd
+mv /tmp/containerd-config.toml /etc/eks/containerd
+mv /tmp/kubelet-containerd.service /etc/eks/containerd
+mv /tmp/pull-sandbox-image.sh /etc/eks/containerd
+mv /tmp/sandbox-image.service /etc/eks/containerd
+chmod +x /etc/eks/containerd/pull-sandbox-image.sh
+
 reboot
