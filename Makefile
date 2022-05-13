@@ -3,7 +3,7 @@ PACKER_VARIABLES := binary_bucket_name binary_bucket_region eks_version eks_buil
 VPC_ID := vpc-0e8cf1ce122b1b059
 SUBNET_ID := subnet-0eddf1d7d0f9f9772
 AWS_REGION := us-east-2
-PACKER_FILE := 
+PACKER_FILE :=
 
 EKS_BUILD_DATE := 2020-11-02
 EKS_115_VERSION := 1.15.12
@@ -11,6 +11,7 @@ EKS_116_VERSION := 1.16.15
 EKS_117_VERSION := 1.17.12
 EKS_118_VERSION := 1.18.9
 EKS_119_VERSION := 1.19.6
+EKS_122_VERSION := 1.22.6
 
 build:
 	packer build \
@@ -70,6 +71,9 @@ build-ubuntu2004-1.18:
 
 build-ubuntu2004-1.19:
 	$(MAKE) build PACKER_FILE=amazon-eks-node-ubuntu2004.json eks_version=$(EKS_119_VERSION) eks_build_date=2021-01-05
+
+build-ubuntu2004-1.22:
+	$(MAKE) build PACKER_FILE=amazon-eks-node-ubuntu2004.json eks_version=$(EKS_122_VERSION) eks_build_date=2022-04-13
 
 # RHEL 7
 #-----------------------------------------------------
