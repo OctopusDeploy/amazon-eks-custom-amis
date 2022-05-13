@@ -28,10 +28,7 @@
       "source_ami_filter": {
         "filters": {
           "name": "{{user `source_ami_name`}}",
-          "root-device-type": "ebs",
-          "state": "available",
-          "virtualization-type": "hvm",
-          "architecture": "{{user `source_ami_arch`}}"
+          "virtualization-type": "hvm"
         },
         "owners": ["{{user `source_ami_owner`}}"],
         "most_recent": true
