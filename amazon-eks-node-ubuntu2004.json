@@ -1,6 +1,6 @@
 {
   "variables": {
-    "aws_region": "us-east-2",
+    "aws_region": "ap-southeast-2",
     "ami_description": "EKS Kubernetes Worker AMI on Ubuntu 20.04 (k8s: {{user `eks_version`}})",
     "eks_version": "",
     "eks_build_date": "",
@@ -10,8 +10,8 @@
     "hardening_flag": "false",
     "root_volume_size": "10",
     "data_volume_size": "50",
-    "vpc_id": "",
-    "subnet_id": "",
+    "vpc_id": "vpc-08a1d210d180c3f28",
+    "subnet_id": "subnet-09739ea858b7d2dcd",
     "http_proxy": "",
     "https_proxy": "",
     "no_proxy": "",
