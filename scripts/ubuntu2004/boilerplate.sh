@@ -10,7 +10,8 @@ source /etc/packer/files/functions.sh
 wait_for_cloudinit
 
 # upgrade the operating system
-apt-get update -y && apt-get upgrade -y
+#apt-get update -y && apt-get upgrade -y
+apt-get update
 
 # install dependencies
 apt-get install -y \
@@ -21,7 +22,7 @@ apt-get install -y \
     unzip \
     lsb-release
 
-install_jq
+#install_jq
 
 # enable audit log
 systemctl enable auditd && systemctl start auditd
@@ -30,10 +31,10 @@ systemctl enable auditd && systemctl start auditd
 configure_http_proxy
 
 # install aws cli
-install_awscliv2
+#install_awscliv2
 
 # install ssm agent
-install_ssmagent
+#install_ssmagent
 
 # partition the disks
 systemctl stop rsyslog irqbalance polkit

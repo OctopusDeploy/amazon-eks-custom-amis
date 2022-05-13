@@ -92,9 +92,9 @@ BINARIES=(
 for binary in ${BINARIES[*]} ; do
     echo "AWS cli missing - using wget to fetch binaries from s3. Note: This won't work for private bucket."
     curl -sL -o $binary $S3_URL_BASE/$binary
-    curl -sL -o $binary.sha256 $S3_URL_BASE/$binary.sha256
+    #curl -sL -o $binary.sha256 $S3_URL_BASE/$binary.sha256
 
-    sha256sum -c $binary.sha256
+    #sha256sum -c $binary.sha256
     chmod +x $binary
     mv $binary /usr/bin/
 done
@@ -111,7 +111,7 @@ rm "${CNI_PLUGIN_FILENAME}.tgz.sha512"
 tar -xvf "${CNI_PLUGIN_FILENAME}.tgz" -C /opt/cni/bin
 rm "${CNI_PLUGIN_FILENAME}.tgz"
 
-rm ./*.sha256
+#rm ./*.sha256
 
 mkdir -p /etc/kubernetes/kubelet
 mkdir -p /etc/systemd/system/kubelet.service.d
