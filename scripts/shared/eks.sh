@@ -125,6 +125,9 @@ chown root:root /etc/systemd/system/kubelet.service
 curl -sL -o /etc/kubernetes/kubelet/kubelet-config.json https://raw.githubusercontent.com/awslabs/amazon-eks-ami/master/files/kubelet-config.json
 chown root:root /etc/kubernetes/kubelet/kubelet-config.json
 
+echo "$(jq '. + {"resolvConf": "/run/systemd/resolve/resolv.conf"}' /etc/kubernetes/kubelet/kubelet-config.json)" > /etc/kubernetes/kubelet/kubelet-config.json
+cat /etc/kubernetes/kubelet/kubelet-config.json
+
 configure_kubelet_environment
 
 systemctl daemon-reload && systemctl disable kubelet
