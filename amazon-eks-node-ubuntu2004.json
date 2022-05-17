@@ -19,7 +19,7 @@
     "source_ami_ssh_user": "ubuntu",
     "source_ami_arch": "x86_64",
     "source_ami_name": "SecOpsUbuntu20.04-*",
-    "target_ami_name": "eks-node-{{ timestamp }}"
+    "target_ami_name": "eks-node-{{user `eks_version`}}-{{ timestamp }}"
   },
   "builders": [
     {
