@@ -47,6 +47,8 @@ elif (is_rhel && is_rhel_8) || (is_centos && is_centos_8); then
 
 elif is_ubuntu; then
 
+  wait_for_unattended_upgr
+
   apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
   add-apt-repository "deb [arch=${ARCH}] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
