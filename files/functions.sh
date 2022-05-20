@@ -485,7 +485,7 @@ enable_fips() {
 }
 
 wait_for_unattended_upgr() {
-    while sudo fuser /var/lib/dpkg/lock-frontend > /dev/null 2>&1; do
-        sleep 10
+    while sudo fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1; do
+        sleep 5
     done
 }
